@@ -1,0 +1,14 @@
+CC = gcc
+inc = /home/nice/unix/include/apue.h
+err = /home/nice/unix/include/error.c
+obj = 16.2.o 16.4.o
+
+%.o : %.c $(err)
+	$(CC) -w -c -o $@ $<
+
+client: $(obj)
+	$(CC) -w -o client $^ $(err) -I $(inc)
+
+
+clean:
+	rm -rf *.o
